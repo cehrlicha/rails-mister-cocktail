@@ -1,0 +1,28 @@
+<h1 class="text-center"> My Cocktails </h1>
+
+<div class="container">
+  <div class="row">
+
+  <% @cocktails.each do |cocktail| %>
+    <div class="col-xs-12 col-sm-4">
+      <!-- insert <div class="card"> -->
+
+
+      <%= link_to cocktail_path(cocktail) do %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://unsplash.it/200/300?image=1060');">
+
+        <div class="card-description">
+          <h2><%= cocktail.name %></h2>
+        </div>
+      </div>
+
+      <% end %>
+    </div>
+      <% end %>
+  </div>
+
+<div class="text-center">
+    <%= link_to "Add a new cocktail", new_cocktail_path, class: "btn btn-primary" %>
+    </div>
+
+</div>
