@@ -4,7 +4,7 @@
     <div class="col-xs-12 col-sm-offset-3 col-sm-6">
 
     <%= simple_form_for [@cocktail, @dose] do |f| %>
-      <%= f.association :ingredient, collection: @ingredients.sort %>
+      <%= f.association :ingredient, collection: @ingredients %>
       <%= f.input :description %>
       <%= f.hidden_field :cocktail_id, value: @cocktail.id %>
       <%= f.submit "Submit", class: "btn btn-primary" %>

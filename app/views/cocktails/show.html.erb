@@ -18,7 +18,7 @@
     <div class="text-center description">
       <%= link_to "Back to list", cocktails_path, class: "btn btn-success" %>
       <%= link_to "Delete", cocktail_path(@cocktail),
-      method: :delete, class: "btn btn-primary",
+      method: :delete, class: "btn btn-danger",
       data: { confirm: "Are you sure?"} %>
       </div>
     </div>
@@ -27,29 +27,40 @@
 </div>
 
 <div class="container">
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Ingredient</th>
-      <th>Amount</th>
-      <th></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row">
 
-  <tbody>
-    <% @doses.each do |dose| %>
-      <tr>
-        <td><%= dose.ingredient.name %></td>
-        <td><%= dose.description %></td>
-        <td><%= link_to 'Destroy', dose_path(dose),
-        method: :delete,
-        data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Ingredient</th>
+          <th>Amount</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @doses.each do |dose| %>
+          <tr>
+            <td><%= dose.ingredient.name %></td>
+            <td><%= dose.description %></td>
+            <td>
+            <%= link_to dose_path(dose), method: :delete,
+                  data: { confirm: 'Are you sure?' } do %>
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+              <% end %>
+            </td>
+          </tr>
+
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
 </div>
-<br>
+    <%= render "doses/form" %>
+</div>
 
-<%= render "doses/form" %>
+
+
+
