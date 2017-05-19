@@ -9,7 +9,7 @@
 
 
       <%= link_to cocktail_path(cocktail) do %>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://unsplash.it/200/300?image=1060');">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>');">
 
         <div class="card-description">
           <h2><%= cocktail.name %></h2>
@@ -17,6 +17,7 @@
       </div>
 
       <% end %>
+
     </div>
       <% end %>
   </div>

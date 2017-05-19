@@ -1,15 +1,8 @@
-<div class="container">
-  <div class="row">
-
-    <div class="col-xs-12 col-sm-offset-3 col-sm-6">
-
     <%= simple_form_for [@cocktail, @dose] do |f| %>
-      <%= f.association :ingredient, collection: @ingredients %>
+      <%= f.association :ingredient, collection: @ingredients, error: 'Please choose an ingredient' %>
       <%= f.input :description %>
       <%= f.hidden_field :cocktail_id, value: @cocktail.id %>
+      <div class="text-center">
       <%= f.submit "Submit", class: "btn btn-primary" %>
+      </div>
     <% end %>
-
-    </div>
-  </div>
-</div>

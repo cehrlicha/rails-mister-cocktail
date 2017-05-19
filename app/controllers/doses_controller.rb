@@ -8,21 +8,13 @@ class DosesController < ApplicationController
     if  @dose.save
       redirect_to cocktail_path(@dose.cocktail)
     else
-      render "cocktails/show"
-    end
-  end
+      @cocktail = @dose.cocktail
+      @ingredients = Ingredient.all
+      # render "cocktails/show"
+      render :new
+      # , :post => post
+      # redirect_to cocktail_path(@dose.cocktail)
 
-  def edit
-
-  end
-
-  def update
-    @dose = Dose.find(params[:id])
-
-    if @dose.update(doses_params)
-      redirect_to cocktail_path(@dose.cocktail)
-    else
-      render :edit
     end
   end
 
