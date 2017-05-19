@@ -65,3 +65,7 @@ gem 'autoprefixer-rails'
 
 # Secure key
 gem 'figaro'
+
+# Third party server for image upload
+gem 'cloudinary'
+gem 'carrierwave'
