@@ -6,4 +6,16 @@ class Cocktail < ApplicationRecord
   validates :description, presence: true
 
   mount_uploader :photo, PhotoUploader
+
+  def self.search(search)
+    search_params = search.split
+    results = []
+    search_params.each do |param|
+      results << where("name ILIKE ?", "%#{param}%")
+      results << joins(:ingredients).where("ingredients.name ILIKE ?", "#{param}")
+    end
+    results.flatten.uniq
+  end
 end
+
+

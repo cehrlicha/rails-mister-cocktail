@@ -4,7 +4,7 @@ class CocktailsController < ApplicationController
     @cocktails = Cocktail.all
 
      if !params[:search].nil? && !params[:search].empty?
-      @cocktails = @cocktails.where(name: params[:search])
+      @cocktails = Cocktail.search(params[:search])
     end
   end
 
